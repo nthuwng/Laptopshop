@@ -9,7 +9,7 @@ public class User {
     private String phone;
 
     public User() {
-        
+
     }
 
     public User(long id, String email, String password, String fullName, String address, String phone) {
@@ -74,7 +74,5 @@ public class User {
         return "User [id=" + id + ", email=" + email + ", password=" + password + ", fullName=" + fullName
                 + ", address=" + address + ", phone=" + phone + "]";
     }
-
-    
 
 }
