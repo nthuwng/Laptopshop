@@ -33,13 +33,19 @@ public class UserController {
 
     @RequestMapping("/admin/user")
     public String getUserPage(Model model) {
+        return "/admin/user/table-user";
+    }
+
+    @RequestMapping("/admin/user/create")
+    public String getCreateUserPage(Model model) { // trùng tên nhưng vì không đặt method nên nó sẽ hiểu là GET
         model.addAttribute("newUser", new User());
         return "/admin/user/create";
     }
 
-    @RequestMapping(value = "/admin/user/create1", method = RequestMethod.POST)
-    public String createUserPage(Model model, @ModelAttribute("newUser") User hoidanit) { //@ModelAttribute dùng để lấy dữ liệu từ form vào object
-        System.out.println("run here "+hoidanit);
+    @RequestMapping(value = "/admin/user/create", method = RequestMethod.POST)
+    public String createUserPage(Model model, @ModelAttribute("newUser") User hoidanit) {
+        // @ModelAttribute dùng để lấy dữ liệu từ form vào object
+        System.out.println("run here " + hoidanit);
         this.userService.handleSaveUser(hoidanit);
         return "hello";
     }
