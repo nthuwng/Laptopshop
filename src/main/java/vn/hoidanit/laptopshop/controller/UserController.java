@@ -62,7 +62,8 @@ public class UserController {
     }
 
     @RequestMapping("/admin/user/update/{id}")
-    public String getUpdateUserPage(Model model, @PathVariable long id) {
+    public String getUpdateUserPage(Model model, @PathVariable long id) { 
+        //@PathVariable dùng để lấy giá trị từ URL  vào biến
         User currentUser = this.userService.getUserById(id);
         model.addAttribute("newUser", currentUser);
         return "/admin/user/update";
@@ -92,4 +93,5 @@ public class UserController {
         this.userService.deleteUserById(eric.getId());
         return "redirect:/admin/user";
     }
+
 }
