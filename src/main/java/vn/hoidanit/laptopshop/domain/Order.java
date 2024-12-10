@@ -24,8 +24,8 @@ public class Order {
     @JoinColumn(name = "user_id")
     private User user;
 
-    // @OneToMany(mappedBy = "order")
-    // List<OrderDetail> orderDetails;
+    @OneToMany(mappedBy = "order")
+    List<OrderDetail> orderDetails;
 
     public long getId() {
         return id;
