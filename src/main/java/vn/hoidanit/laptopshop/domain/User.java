@@ -24,15 +24,32 @@ public class User {
     private String phone;
     private String avatar;
 
-    //2 CLASS USER VÀ ROLE 
-    //Bên class one ngoài sau thì nó là người sỡ hữu nó phải được định nghĩa joinColumn
+    // 2 CLASS USER VÀ ROLE
+    // Bên class one ngoài sau thì nó là người sỡ hữu nó phải được định nghĩa
+    // joinColumn
     @ManyToOne
-    @JoinColumn(name = "role_id") //khi dùng joinColumn thì nó sẽ sinh ra 1 cột mới role_id trong bảng user
+    @JoinColumn(name = "role_id") // khi dùng joinColumn thì nó sẽ sinh ra 1 cột mới role_id trong bảng user
     private Role role;
 
-    //2 CLASS USER VÀ ORDER 
-    @OneToMany(mappedBy = "user") 
+    // 2 CLASS USER VÀ ORDER
+    @OneToMany(mappedBy = "user")
     private List<Order> orders;
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
 
     public User() {
 
@@ -109,7 +126,5 @@ public class User {
         return "User [id=" + id + ", email=" + email + ", password=" + password + ", fullName=" + fullName
                 + ", address=" + address + ", phone=" + phone + ", avatar=" + avatar + "]";
     }
-
-    
 
 }
