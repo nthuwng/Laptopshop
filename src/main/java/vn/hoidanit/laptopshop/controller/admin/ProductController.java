@@ -21,4 +21,3 @@ public class ProductController {
         return "/admin/product/create";
     }
 }
-//

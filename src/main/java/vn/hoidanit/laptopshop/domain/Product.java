@@ -116,5 +116,3 @@ public class Product {
     }
 
 }
-
-// tét
