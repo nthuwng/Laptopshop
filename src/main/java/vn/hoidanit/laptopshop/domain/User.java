@@ -17,23 +17,24 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     private String email;
+
     private String password;
     private String fullName;
     private String address;
     private String phone;
+
     private String avatar;
 
-    // 2 CLASS USER VÀ ROLE
-    // Bên class one ngoài sau thì nó là người sỡ hữu nó phải được định nghĩa
-    // joinColumn
+    // roleId
+    // User many -> to one -> role
     @ManyToOne
-    @JoinColumn(name = "role_id") // khi dùng joinColumn thì nó sẽ sinh ra 1 cột mới role_id trong bảng user
+    @JoinColumn(name = "role_id")
     private Role role;
 
-    // 2 CLASS USER VÀ ORDER
     @OneToMany(mappedBy = "user")
-    private List<Order> orders;
+    List<Order> orders;
 
     public Role getRole() {
         return role;
@@ -49,20 +50,6 @@ public class User {
 
     public void setOrders(List<Order> orders) {
         this.orders = orders;
-    }
-
-    public User() {
-
-    }
-
-    public User(long id, String email, String password, String fullName, String address, String phone, String avatar) {
-        this.id = id;
-        this.email = email;
-        this.password = password;
-        this.fullName = fullName;
-        this.address = address;
-        this.phone = phone;
-        this.avatar = avatar;
     }
 
     public long getId() {

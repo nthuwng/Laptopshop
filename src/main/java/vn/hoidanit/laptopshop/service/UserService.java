@@ -11,18 +11,13 @@ import vn.hoidanit.laptopshop.repository.UserRepository;
 
 @Service
 public class UserService {
-
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
 
-    public UserService(UserRepository userRepository, RoleRepository roleRepository) {
+    public UserService(UserRepository userRepository,
+            RoleRepository roleRepository) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
-
-    }
-
-    public String handleHello() {
-        return "Hello from service";
     }
 
     public List<User> getAllUsers() {
@@ -43,11 +38,12 @@ public class UserService {
         return this.userRepository.findById(id);
     }
 
-    public void deleteUserById(long id) {
+    public void deleteAUser(long id) {
         this.userRepository.deleteById(id);
     }
 
     public Role getRoleByName(String name) {
         return this.roleRepository.findByName(name);
     }
+
 }
