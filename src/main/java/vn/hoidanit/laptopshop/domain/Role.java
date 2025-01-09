@@ -2,10 +2,14 @@ package vn.hoidanit.laptopshop.domain;
 
 import java.util.List;
 
+import org.hibernate.annotations.ManyToAny;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -20,8 +24,9 @@ public class Role {
 
     private String description;
 
-    // role - one => many - users . ctrl + k . press 's'
-    @OneToMany(mappedBy = "role")
+    //2 CLASS USER VÀ ROLE 
+    //Bên class có many ngoài sau thì phải định nghĩa mappedBy
+    @OneToMany(mappedBy = "role") // tên role này trùng với tên biến role trong class User
     private List<User> users;
 
     public long getId() {

@@ -17,10 +17,9 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
     private double totalPrice;
 
-    // user id
+    // Nó là owner của quan hệ nên phải định nghĩa joinColumn
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
